@@ -1,0 +1,36 @@
+{
+    "name": "kanellov/config-merge",
+    "description": "A simple function that merges config arrays",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": [
+        "array", "merge", "config", "configuration"
+    ],
+    "homepage": "https://github.com/kanellov/config-merge",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vassilis Kanellopoulos",
+            "email": "contact@kanellov.com",
+            "homepage": "http://kanellov.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "contact@kanellov.com",
+        "issues": "https://github.com/kanellov/config-merge/issues",
+        "source": "https://github.com/kanellov/config-merge"
+    },
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "funkatron/funit": "0.6.0"
+    },
+    "autoload": {
+        "files": [
+            "config_merge.php"
+        ]
+    }
+
+}
