@@ -1,4 +1,7 @@
 # config-merge
+
+[![Build Status](https://travis-ci.org/kanellov/config-merge.svg?branch=master)](https://travis-ci.org/kanellov/config-merge)
+
 A simple function that merges configuration files.
 
 # Example
