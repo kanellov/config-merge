@@ -1,7 +1,6 @@
 {
     "name": "kanellov/config-merge",
     "description": "A simple function that merges config arrays",
-    "version": "0.0.1",
     "type": "library",
     "keywords": [
         "array", "merge", "config", "configuration"
