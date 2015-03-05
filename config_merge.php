@@ -23,14 +23,27 @@ namespace Knlv;
  */
 function config_merge($path, array $suffixes, array $init = array())
 {
-    return array_reduce(
-        glob(
-            realpath($path) . '/{,*.}{' . implode(',', $suffixes) . '}.php',
-            GLOB_BRACE
-        ),
-        function ($config, $file) {
-            return array_replace_recursive($config, include $file);
-        },
-        $init
-    );
+    $merge = function (array $merged, array $new) use (&$merge) {
+        foreach ($new as $key => $value) {
+            if (array_key_exists($key, $merged)) {
+                if (is_int($key)) {
+                    $merged[] = $value;
+                } elseif (is_array($value) && is_array($merged[$key])) {
+                    $merged[$key] = $merge($merged[$key], $value);
+                } else {
+                    $merged[$key] = $value;
+                }
+            } else {
+                $merged[$key] = $value;
+            }
+        }
+        return $merged;
+    };
+
+    return array_reduce(glob(
+        realpath($path) . '/{,*.}{' . implode(',', $suffixes) . '}.php',
+        GLOB_BRACE
+    ), function ($config, $file) use (&$merge) {
+        return $merge($config, include $file);
+    }, $init);
 }
